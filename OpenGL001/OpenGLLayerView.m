@@ -50,13 +50,14 @@
     
     glBindRenderbuffer(GL_RENDERBUFFER, _renderBuffer);
     //为renderBuffer分配存储空间，iOS需要这么用
-    BOOL result = [_glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
-    if (!result) {
-        printf("failed to renderbufferStorage \n");
-    }
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGB565, self.bounds.size.width, self.bounds.size.height);
+//    BOOL result = [_glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
+//    if (!result) {
+//        printf("failed to renderbufferStorage \n");
+//    }
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderBuffer);
-    
+
     glClearColor(0, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     

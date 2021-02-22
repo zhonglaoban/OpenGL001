@@ -1,3 +1,4 @@
+# 在iOS中如何使用OpenGL
 在iOS中如何使用`OpenGL`呢，有3种方式，它们都来自系统的库`GLKit`中。下面我们来看看如何使用他们（我们这里主要讲一些简单的初始化工作，循序渐进）。
 ## GLKViewController
 创建一个控制器继承于`GLKViewController`，在`viewDidLoad`中设置一个`EAGLContext`，然后重写`glkView:drawInRect:`的方法，就可以在里面做OpenGL相关的绘制啦。
